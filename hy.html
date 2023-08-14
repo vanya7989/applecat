@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-family: 'Press Start 2P', cursive; /* Apply retro video game font */
+      font-size: 24px;
+    }
+
+    h2 {
+      font-family: 'Press Start 2P', cursive; /* Apply retro video game font */
+      font-size: 16px;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .sound-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 5px;
+      cursor: pointer;
+      background-color: #6d6d6d;
+      border: none;
+      color: white;
+    }
+
+    .sound-button:hover {
+      background-color: #555;
+    }
+
+    #imageContainer {
+      margin-top: 20px;
+    }
+
+    #imageContainer img {
+      width: 200px; /* Specify the width you want */
+      height: auto; /* Maintain aspect ratio */
+      display: none;
+    }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<title>Apple don't make me cry</title>
+</head>
+<body>
+  <h1>Apple me!!</h1>
+  <h2>hlo! I'm Apple.</h2>
+  <h2>What? do you want me to do???</h2>
+  <div class="button-container">
+    <button class="sound-button" id="button1">Cry!</button>
+    <button class="sound-button" id="button2">Dance</button>
+    <button class="sound-button" id="button3">loVE you!!</button>
+  </div>
+  <div id="imageContainer">
+    <img id="displayedImage" src="" alt="Dancing Apple">
+  </div>
+  <audio id="audio1" src="https://cdn.pixabay.com/download/audio/2022/03/14/audio_5a64139061.mp3?filename=baby-crying-64996.mp3&g-recaptcha-response=03ADUVZwCpmdUvkRPUgoCeCs96c8hT2cFJyOBXiTQhfVbadZPP-Yq7IeQoz5iN6TpZQlBX2ROd0N9fk5T0aNFzW_K8M4cPMBEJu6lW7wdcn089bk_O7BGKxRgjZZmhw9wN_PvwhKuJ6y0dc11xTFkfTMcKo0FnIQS7a5gz_jnExFMcw2fHEAd25ngY1XJV7gZkCSHekNjrjSySyo_L7YKFKAoYVRFOLxtab0SnD6PZb9sUpgkOeBJeR00woQ5kC5EhvgnOfYauID8vNE8h1gIcKpL_K3IFPdibwL0QbRdRxH7mHWb7sAF2lUzZxCbHeeKqjsRRntnp2VWgK5ljntOau3Ft4igCjz5rN9C_J53j5MUQiXhNDieEnq9Ur2fAxTi7l2XkN9UjvBZPcTLhfX5GI4rR5IqjLoOAl2gSYWCls99IGN4oGq2o6fYiTXHEW3aoCk7OFoWw7yEz2lZvAMyqYCh2f-NoG8m22EksEXBcyptF27D5GDGWqoyId5mbqFDDr8-qke1lRX9uBF1hOrc5is_341TJiwRR2-m6ZS9HJ4ucjHyb9TAsUBuzQmAQaqNwyz2bDafSRjXg&remote_template=1"></audio>
+  <audio id="audio2" src="https://ve48.aadika.xyz/download/NNHQNuG_i1s/mp3/128/1692001504/f9dab78a94414304a7404f49e7650c13a5d298c5430b222358769e63b565975a/1?f=X2Download.app"></audio>
+  <audio id="audio3" src="https://ve44.aadika.xyz/download/hL9bvUYncHs/mp3/128/1692001351/c26baf22802ed51edd35dadc74202ff8ce41446e74c77d2b2816b0aeb3e91f93/1?f=X2Download.app"></audio>
+  <h2>note: plz DOn't make me cry!</h2>
+  <script>
+    var displayedImage = document.getElementById("displayedImage");
+    var playingAudio = null; // To keep track of the currently playing audio element
+    
+    // Function to toggle audio play/pause and display an image when a button is clicked
+    function togglePlayPauseAudio(soundId, imageUrl) {
+      var audio = document.getElementById(soundId);
+      
+      if (playingAudio && playingAudio !== audio) {
+        playingAudio.pause();
+      }
+      
+      if (audio.paused) {
+        audio.currentTime = 0; // Reset audio to the beginning
+        audio.play();
+        displayedImage.src = imageUrl;
+        displayedImage.style.display = "block";
+        playingAudio = audio;
+      } else {
+        audio.pause();
+        displayedImage.style.display = "none";
+        playingAudio = null;
+      }
+    }
+
+    // Button event listeners
+    document.getElementById("button1").addEventListener("click", function() {
+      togglePlayPauseAudio("audio1", "https://media.tenor.com/Ac__StaRbAYAAAAi/cry-sad.gif");
+    });
+
+    document.getElementById("button2").addEventListener("click", function() {
+      togglePlayPauseAudio("audio2", "https://media.tenor.com/sJsAvcRRjRwAAAAC/spooky-apple-dance.gif");
+    });
+
+    document.getElementById("button3").addEventListener("click", function() {
+      togglePlayPauseAudio("audio3", "https://i.kym-cdn.com/photos/images/newsfeed/001/662/705/0bd.png");
+    });
+  </script>
+</body>
+</html>
